@@ -7,6 +7,7 @@ using UnityEngine.UI;
 {
     public float MovmentSpeed = 1;
     public float JumpForce = 1;
+    private bool CanDoubleJump;
 
     private Rigidbody2D _rigidbody2D;
     
@@ -25,10 +26,19 @@ using UnityEngine.UI;
         if (!Mathf.Approximately(0, Movment))
             transform.rotation = Movment > 0 ? Quaternion.Euler(0, 180, 0) : Quaternion.identity;
 
-        if (Input.GetButtonDown("Jump")) && Mathf.Abs(_rigidbody2D.velocity.y) < 0.001f;
+        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody2D.velocity.y) < 0.001f)
         {
             _rigidbody2D.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            CanDoubleJump = true;
         }
+
+        else if ( CanDoubleJump && Input.GetButtonDown("Jump"))
+        {
+            _rigidbody2D.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            CanDoubleJump = false;
+        }
+
+
 
     }
 }
