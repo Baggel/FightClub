@@ -6,6 +6,6 @@ using UnityEngine.UI;
 public class Combat : MonoBehaviour
 {   void Update()
     {
-        if (Input.GetKeyDown)
+       
     }
 }
