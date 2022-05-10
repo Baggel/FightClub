@@ -11,9 +11,11 @@ using UnityEngine.UI;
     public Animator animator;
     private Rigidbody2D _rigidbody2D;
 
-    
-    
-    
+   
+
+
+
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
@@ -23,11 +25,22 @@ using UnityEngine.UI;
     
     void Update()
     {
+
+
+
+
+
         var Movment = Input.GetAxis("Horizontal");
         transform.position += new Vector3(Movment, 0, 0) * Time.deltaTime * MovmentSpeed;
 
         animator.SetFloat("Speed", Mathf.Abs(Movment));
-        
+
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            Jump = true;
+            animator.SetBool("Jump", true);
+        }
 
 
 
@@ -39,14 +52,10 @@ using UnityEngine.UI;
         {
             _rigidbody2D.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
             CanDoubleJump = true;
-            animator.SetBool("IsJumping", true);
+            
 
         }
-        if (Mathf.Abs(_rigidbody2D.velocity.y) > 0.001f)
-        {
-            animator.SetBool("IsJumping", false);
-        }
-
+        
         
 
         else if ( CanDoubleJump && Input.GetButtonDown("Jump"))
@@ -56,6 +65,7 @@ using UnityEngine.UI;
             
         }
 
+       
 
 
     }
