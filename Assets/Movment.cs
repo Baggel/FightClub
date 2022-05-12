@@ -10,7 +10,7 @@ using UnityEngine.UI;
     private bool CanDoubleJump;
     public Animator animator;
     private Rigidbody2D _rigidbody2D;
-    private bool IsGrounded;
+    public bool IsGrounded;
     public LayerMask Ground;
     public Collider2D FootCollider;
 
@@ -30,7 +30,18 @@ using UnityEngine.UI;
     void Update()
     {
 
-        
+        if (IsGrounded)
+        {
+            animator.SetBool("IsJumping", false);
+            CanDoubleJump = true;
+
+        }
+        else
+        {
+            animator.SetBool("IsJumping", true);
+            CanDoubleJump = true;
+
+        }
 
 
 
@@ -49,16 +60,11 @@ using UnityEngine.UI;
 
         if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody2D.velocity.y) < 0.001f)
         {
-            if (IsGrounded)
-            {
-                animator.SetBool("IsJumping", true);
-                _rigidbody2D.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-                CanDoubleJump = true;
+            _rigidbody2D.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
+            CanDoubleJump = true;
+           
 
-            }
-             
-          
-            
+
 
         }
 

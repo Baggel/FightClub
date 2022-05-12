@@ -224,8 +224,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MovmentSpeed: 10
-  JumpForce: 20
+  JumpForce: 10
   animator: {fileID: 386020869}
+  IsGrounded: 0
   Ground:
     serializedVersion: 2
     m_Bits: 8
