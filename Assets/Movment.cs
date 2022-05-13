@@ -33,13 +33,13 @@ using UnityEngine.UI;
         if (IsGrounded)
         {
             animator.SetBool("IsJumping", false);
-            CanDoubleJump = true;
+            
 
         }
         else
         {
             animator.SetBool("IsJumping", true);
-            CanDoubleJump = true;
+            
 
         }
 
