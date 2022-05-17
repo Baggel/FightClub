@@ -4,8 +4,21 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
-{   void Update()
+{
+    public Animator animator;
+    void Update()
     {
-       
+
+
+        if (Input.GetKey(KeyCode.P))
+        {
+            Attack();
+        }
+
+
+        void Attack()
+        {
+            animator.SetTrigger("Attacking");
+        }
     }
 }
