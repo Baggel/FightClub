@@ -4,8 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Combat : MonoBehaviour
-{
+{   
     public Animator animator;
+    public Transform AttackPoint;
+    public float AttackRange = 0.5f;
+    public LayerMask PlayerLayers;
     void Update()
     {
 
@@ -19,6 +22,25 @@ public class Combat : MonoBehaviour
         void Attack()
         {
             animator.SetTrigger("Attacking");
+
+            Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayers);
+
+            foreach (Collider2D Player in HitPlayer)
+            { 
+                 Debug.Log("we hit" + Player.name);
+            }
+
+
         }
+
+       
     }
+    private void OnDrawGizmosSelected()
+    {
+        if (AttackPoint == null)
+            return;
+        
+        Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
+    }
+
 }
