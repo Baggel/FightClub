@@ -348,7 +348,7 @@ MonoBehaviour:
   AttackRange: 0.41
   PlayerLayers:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 2147483647
 --- !u!95 &386020869
 Animator:
   serializedVersion: 4
@@ -602,6 +602,7 @@ GameObject:
   - component: {fileID: 984261332}
   - component: {fileID: 984261331}
   - component: {fileID: 984261330}
+  - component: {fileID: 984261334}
   m_Layer: 6
   m_Name: Player 2
   m_TagString: Untagged
@@ -645,7 +646,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 1
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!212 &984261332
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -713,3 +714,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 1.065}
+--- !u!114 &984261334
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 984261329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b2604e916b5a14ca536dc0dd972425, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MaxHealth: 100

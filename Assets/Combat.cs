@@ -26,8 +26,8 @@ public class Combat : MonoBehaviour
             Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayers);
 
             foreach (Collider2D Player in HitPlayer)
-            { 
-                 Debug.Log("we hit" + Player.name);
+            {
+                Player.GetComponent<Play>
             }
 
 
