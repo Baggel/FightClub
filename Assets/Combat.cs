@@ -27,7 +27,7 @@ public class Combat : MonoBehaviour
 
             foreach (Collider2D Player in HitPlayer)
             {
-                Player.GetComponent<Play>
+                Debug.Log("We Hit Them!!");
             }
 
 
