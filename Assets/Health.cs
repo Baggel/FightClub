@@ -9,15 +9,18 @@ public class Health : MonoBehaviour
 
     void Start()
     {
+        //setts player health
         CurrentHealth = MaxHealth;
     }
 
     public void TakeDamage(int damage)
     {
+      //take damage on hit
       CurrentHealth -= damage;
 
         if (CurrentHealth < 0)
         {
+            //if your health reaches 0 die
             Die();
         }
 
@@ -27,6 +30,7 @@ public class Health : MonoBehaviour
 
     void Die()
     {
+        //when a player dies it says enemy dead
         Debug.Log("Enemy Dead");
     }  
        

@@ -12,7 +12,7 @@ public class Combat : MonoBehaviour
     void Update()
     {
 
-
+        //when you press the attack button you attack
         if (Input.GetKey(KeyCode.P))
         {
             Attack();
@@ -21,12 +21,14 @@ public class Combat : MonoBehaviour
 
         void Attack()
         {
+            //plays attack animation
             animator.SetTrigger("Attacking");
-
+            //Checks for hitboxes 
             Collider2D[] HitPlayer = Physics2D.OverlapCircleAll(AttackPoint.position, AttackRange, PlayerLayers);
 
             foreach (Collider2D Player in HitPlayer)
             {
+                //if you hit somone it says we hit them
                 Debug.Log("We Hit Them!!");
             }
 
@@ -37,9 +39,10 @@ public class Combat : MonoBehaviour
     }
     private void OnDrawGizmosSelected()
     {
+        //if it does not find a player do nothing
         if (AttackPoint == null)
             return;
-        
+        //Attck hitbox
         Gizmos.DrawWireSphere(AttackPoint.position, AttackRange);
     }
 
